@@ -1,0 +1,11 @@
+2024-10-11 10:00:01 INFO  [mdp-fix-adapter v1.0.0] - Aplicação iniciada com sucesso.
+2024-10-11 10:00:05 INFO  [mdp-fix-adapter v1.0.0] - Conectando ao servidor FIX na porta 9876...
+2024-10-11 10:00:06 INFO  [mdp-fix-adapter v1.0.0] - Conexão estabelecida com sucesso ao servidor FIX.
+2024-10-11 10:00:10 WARN  [mdp-fix-adapter v1.0.0] - Recebendo mensagem com formato inesperado: FIX.4.2|8=FIX.4.2|9=... 
+2024-10-11 10:00:12 INFO  [mdp-fix-adapter v1.0.0] - Enviando ordem de compra para o ativo AAPL.
+2024-10-11 10:00:13 ERROR [mdp-fix-adapter v1.0.0] - Falha ao enviar ordem: timeout na conexão.
+2024-10-11 10:00:15 INFO  [mdp-fix-adapter v1.0.0] - Tentando reenviar a ordem para o ativo AAPL.
+2024-10-11 10:00:18 INFO  [mdp-fix-adapter v1.0.0] - Ordem de compra enviada com sucesso para AAPL.
+2024-10-11 10:00:20 WARN  [mdp-fix-adapter v1.0.0] - Conexão intermitente detectada com o servidor FIX.
+2024-10-11 10:00:25 INFO  [mdp-fix-adapter v1.0.0] - Desconectando do servidor FIX.
+2024-10-11 10:00:30 INFO  [mdp-fix-adapter v1.0.0] - Aplicação encerrada corretamente.

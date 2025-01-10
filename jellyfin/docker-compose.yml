@@ -1,0 +1,17 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:2024101405-arm64
+    container_name: jellyfin
+    network_mode: bridge
+    volumes:
+      - /mnt/hd_alan:/media
+      - jellyfin_config:/config
+      - jellyfin_cache:/cache
+    ports:
+      - 8096:8096
+    restart: unless-stopped
+
+volumes:
+  jellyfin_config:
+  jellyfin_cache:
+

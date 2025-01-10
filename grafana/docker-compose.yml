@@ -1,0 +1,44 @@
+services:
+  loki:
+    image: grafana/loki:main-10569ab
+    ports:
+      - "3100:3100"
+    volumes:
+      - loki-data:/loki/data
+    command: 
+      - -config.file=/etc/loki/loki-config.yaml
+      - -config.expand-env=true
+    configs:
+      - source: loki-config
+        target: /etc/loki/loki-config.yaml
+
+  promtail:
+    image: grafana/promtail:main-10569ab
+    volumes:
+      - ./logs:/var/log/log4j
+      - promtail-config:/etc/promtail
+    command: -config.file=/etc/promtail/promtail-config.yaml
+    configs:
+      - source: promtail-config
+        target: /etc/promtail/promtail-config.yaml
+
+  grafana:
+    image: grafana/grafana:11.2.2
+    ports:
+      - "3000:3000"
+    depends_on:
+      - loki
+    volumes:
+      - grafana-storage:/var/lib/grafana
+
+volumes:
+  loki-data:
+  promtail-config:
+  grafana-storage:
+
+configs:
+  loki-config:
+    file: ./loki-config.yaml
+  promtail-config:
+    file: ./promtail-config.yaml
+

@@ -1,0 +1,24 @@
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:2024.07.0
+    environment:
+      TZ: 'America/Sao_Paulo'
+      WEBPASSWORD: 'Al@n2107'
+    volumes:
+      - './etc-pihole:/etc/pihole'
+      - './etc-dnsmasq.d:/etc/dnsmasq.d'
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp" 
+      - "80:80/tcp"
+    restart: unless-stopped
+    dns:
+      - 127.0.0.1
+      - 8.8.8.8  # DNS do Google como fallback
+
+networks:
+  default:
+    driver: bridge
+
